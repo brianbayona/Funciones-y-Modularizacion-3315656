@@ -11,4 +11,4 @@ for (let i = 1; i <= 100; i++) {//el contador empieza en 1 y va aunmentando hast
   console.log(`Sumando: ${i} | Total actual: ${suma}`);// Imprime el número que se está sumando y el total acumulado hasta ese momento
 }
 
-console.log(`Resultado final de la suma: ${suma}`);
+console.log(`Resultado final de la suma: ${suma}`);// Imprime el resultado final de la suma después de que el ciclo ha terminado o ha sido interrumpido
