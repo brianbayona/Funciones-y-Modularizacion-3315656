@@ -7,3 +7,8 @@ while (boletosVendidos < LIMITE_BOLETOS) {//iniciamos un ciclo que se ejecutará
   console.log(`No se vendió boleto a una persona de ${edadComprador} años para película de adultos.`);//MENSAJE DE NO VENTA
 }
 if (edadComprador < 18 && esPeliculaAdultos) {//si es menor no se le vende boleto para película
+  boletosVendidos++; //Si el programa no entró al if (porque la venta fue legal), llegará a esta línea. El operador ++ suma 1 a nuestra variable
+  console.log(`VENTA EXITOSA. Boletos vendidos: ${boletosVendidos}/${LIMITE_BOLETOS}`);//Imprime la confirmación de la venta y el estado actual del inventario
+}
+
+console.log("--- Venta finalizada: Cupo lleno ---");
