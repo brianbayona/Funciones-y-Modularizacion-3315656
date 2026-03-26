@@ -7,3 +7,8 @@ for (let i = 1; i <= 100; i++) {//el contador empieza en 1 y va aunmentando hast
     console.log(`Ciclo interrumpido en el número: ${i}`);
     break;// Si se cumple la condición, se imprime el mensaje y se interrumpe el ciclo con break
   }
+  suma += i; // Sumamos el número actual al total
+  console.log(`Sumando: ${i} | Total actual: ${suma}`);// Imprime el número que se está sumando y el total acumulado hasta ese momento
+}
+
+console.log(`Resultado final de la suma: ${suma}`);
