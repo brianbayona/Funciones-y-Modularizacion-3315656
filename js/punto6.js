@@ -1,14 +1,39 @@
-let boletosVendidos = 0; //declaramos una variable para llevar el conteo de los boletos vendidos
-const LIMITE_BOLETOS = 15; //definimos una constante para el límite de boletos disponibles
-console.log("--- Inicio de la venta de boletos ---");//MENSAJE DE INICIO
-while (boletosVendidos < LIMITE_BOLETOS) {//iniciamos un ciclo que se ejecutará mientras el númerode boletos vendidos sea menor al límite
-  let edadComprador = Math.floor(Math.random() * 30) + 10; //genero edad ente 10 y 39 años
-  let esPeliculaAdultos = Math.random() < 0.5;//genera un valor booleano para adulto o no adulto
-  console.log(`No se vendió boleto a una persona de ${edadComprador} años para película de adultos.`);//MENSAJE DE NO VENTA
-}
-if (edadComprador < 18 && esPeliculaAdultos) {//si es menor no se le vende boleto para película
-  boletosVendidos++; //Si el programa no entró al if (porque la venta fue legal), llegará a esta línea. El operador ++ suma 1 a nuestra variable
-  console.log(`VENTA EXITOSA. Boletos vendidos: ${boletosVendidos}/${LIMITE_BOLETOS}`);//Imprime la confirmación de la venta y el estado actual del inventario
+// --- CONFIGURACIÓN (Simulando un módulo de constantes) ---
+const LIMITE_BOLETOS = 15;
+/** Genera datos aleatorios del cliente y la película */
+function generarDatosVenta() {
+    return {
+        edad: Math.floor(Math.random() * 30) + 10, // 10 a 39 años
+        esParaAdultos: Math.random() < 0.5         // true o false
+    };
 }
 
-console.log("--- Venta finalizada: Cupo lleno ---");
+/** Valida si la venta es permitida según la edad */
+function esVentaValida(edad, esPeliculaAdultos) {
+    if (edad < 18 && esPeliculaAdultos) {
+        return false;
+    }
+    return true;
+}
+
+/** Procesa la lógica principal de la taquilla */
+function iniciarVenta() {
+    let boletosVendidos = 0;
+    console.log("--- Inicio de la venta de boletos ---");
+
+    while (boletosVendidos < LIMITE_BOLETOS) {
+        const cliente = generarDatosVenta();
+        
+        if (esVentaValida(cliente.edad, cliente.esParaAdultos)) {
+            boletosVendidos++;
+            console.log(` VENTA EXITOSA. Edad: ${cliente.edad} | Boletos: ${boletosVendidos}/${LIMITE_BOLETOS}`);
+        } else {
+            console.log(` VENTA DENEGADA. Menor de ${cliente.edad} años no puede ver película de adultos.`);
+        }
+    }
+
+    console.log("--- Venta finalizada: Cupo lleno ---");
+}
+
+// --- EJECUCIÓN ---
+iniciarVenta();
