@@ -1,14 +1,45 @@
-let suma = 0;//creamos una variable para almacenar la suma de los números
-
-console.log("--- Iniciando suma del 1 al 100 con interrupción ---");//MENSAJE DE INICIO
-for (let i = 1; i <= 100; i++) {//el contador empieza en 1 y va aunmentando hasta 100
-
-  if (i > 90 && i % 2 === 0) {// Verificamos si es mayor a 90 Y es par (el residuo de dividir entre 2 es 0)
-    console.log(`Ciclo interrumpido en el número: ${i}`);
-    break;// Si se cumple la condición, se imprime el mensaje y se interrumpe el ciclo con break
-  }
-  suma += i; // Sumamos el número actual al total
-  console.log(`Sumando: ${i} | Total actual: ${suma}`);// Imprime el número que se está sumando y el total acumulado hasta ese momento
+/**
+ * REGLA DE NEGOCIO:
+ * Determina si el ciclo debe detenerse.
+ */
+function debeInterrumpir(numero) {
+    return numero > 90 && numero % 2 === 0; // Condición de interrupción: números pares mayores a 90
 }
 
-console.log(`Resultado final de la suma: ${suma}`);// Imprime el resultado final de la suma después de que el ciclo ha terminado o ha sido interrumpido
+// LÓGICA DE PROCESAMIENTO:
+ // Realiza la suma con la condición de parada.
+function calcularSumaCondicional(limiteMaximo) {// Inicializa la suma y la variable de interrupción
+    let suma = 0;
+    let numeroInterrupcion = null;
+
+    for (let i = 1; i <= limiteMaximo; i++) { // Itera desde 1 hasta el límite máximo
+        if (debeInterrumpir(i)) { // Verifica si se debe interrumpir el ciclo
+            numeroInterrupcion = i;
+            break; // Detiene el ciclo por completo
+        }
+        suma += i;
+    }
+
+    return {
+        resultado: suma,
+        detenidoEn: numeroInterrupcion
+    };
+}
+
+/**
+ * FUNCIÓN PRINCIPAL (Main):
+ * Orquestadora de la ejecución.
+ */
+function ejecutarEjercicio() {
+    const LIMITE = 100;
+    const data = calcularSumaCondicional(LIMITE);
+
+    console.log("--- Reporte de Suma ---");
+    if (data.detenidoEn) {
+        console.log(`⚠️ Ciclo interrumpido en el número: ${data.detenidoEn}`);
+    }
+    console.log(`✅ La suma total acumulada es: ${data.resultado}`);
+}
+
+// Ejecución del programa
+ejecutarEjercicio();
