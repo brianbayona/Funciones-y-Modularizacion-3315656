@@ -16,3 +16,5 @@ const jugarAdivinador = () => { // Función principal para jugar al adivinador//
     let intentoUsuario;  // Variable para almacenar el número ingresado por el usuario//
     let acertado = false;  // Variable para controlar si el usuario ha adivinado el número//
 alert("¡Bienvenido al Adivinador! He pensado un número entre 1 y 20."); // Mensaje de bienvenida//
+while (!acertado) { // Bucle que continúa hasta que el usuario adivine el número//
+        intentoUsuario = parseInt(prompt("Introduce tu número:")); // Solicita al usuario que ingrese un número//
