@@ -10,9 +10,22 @@ function validarCredenciales(user, pass) {  // Función que valida las credencia
 }
 
 function iniciarSesion() { // Función principal para iniciar sesión//
+    }
     const MAX_INTENTOS = 3;  // Definimos una constante para el número máximo de intentos permitidos//
     let intentoActual = 1;  //  Variable para contar el número de intentos realizados//
     let accesoConcedido = false;  // Variable para indicar si el acceso ha sido concedido//
     while (intentoActual <= MAX_INTENTOS && !accesoConcedido) { // Bucle que se ejecuta mientras el número de intentos sea menor o igual al máximo permitido y el acceso no haya sido concedido//
         let user = prompt(`Intento ${intentoActual} de ${MAX_INTENTOS}\nIngrese su usuario:`); // Solicitamos al usuario que ingrese su nombre de usuario, mostrando el número de intento actual y el máximo permitido//
         let pass = prompt(`Ingrese su contraseña:`);    // Solicitamos al usuario que ingrese su contraseña//
+        if (validarCredenciales(user, pass)) {  // Si las credenciales son correctas, mostramos un mensaje de bienvenida y establecemos accesoConcedido a true para salir del bucle//
+            console.log("¡Bienvenido!");// Mostramos un mensaje de bienvenida al usuario//
+            accesoConcedido = true; // Establecemos accesoConcedido a true para salir del bucle//
+        } else {
+            console.log("Usuario o contraseña incorrectos."); // Si las credenciales son incorrectas, mostramos un mensaje de error y aumentamos el contador de intentos//
+            intentoActual++; // Incrementamos el contador de intentos para el siguiente intento//
+        }
+    }
+    if (!accesoConcedido) { // Si después de los intentos el acceso no ha sido concedido, mostramos un mensaje de acceso denegado//
+        console.log("Acceso denegado. Has agotado tus 3 intentos."); // Mostramos un mensaje de acceso denegado al usuario después de agotar los intentos//
+    }
+iniciarSesion(); // Llamamos a la función iniciarSesion para comenzar el proceso de validación de credenciales//
