@@ -1,3 +1,6 @@
+const prompt = require('prompt-sync')();//función pertenece a los navegadores, por eso usamos prompt-sync para simular esa funcionalidad en Node.js. Esto nos permite pedir al usuario que ingrese datos desde la consola.
+
+
 function esPar(numero) { //creamos la function para saber si el numero es par//
     return numero % 2 === 0; //retorna true si el numero es par, de lo contrario retorna false//
     }
@@ -13,7 +16,7 @@ function ejecutarContador() { //creamos la function para ejecutar el contador//
         let entrada = prompt(`Ingrese el número ${i} de ${TOTAL_NUMEROS}:`); //pedimos al usuario que ingrese un numero//
         let numero = parseInt(entrada); //convertimos la entrada a un numero entero//
         if (isNaN(numero)) { //is NaN verifica si el valor no es un número, si es así, mostramos un mensaje de error y repetimos el turno//
-            alert("Eso no es un número válido. Intenta de nuevo."); //mostramos un mensaje de error//
+            console.log(`Entrada inválida: "${entrada}" no es un número. Por favor, ingrese un número válido.`);
             i--; // Decrementamos el índice para repetir este turno
             continue;
         }
@@ -28,6 +31,6 @@ function ejecutarContador() { //creamos la function para ejecutar el contador//
     console.log(`Total de números pares: ${pares}`);
     console.log(`Total de números impares: ${impares}`);
     
-    alert(`Conteo terminado:\nPares: ${pares}\nImpares: ${impares}`);
+
 }
 ejecutarContador();
