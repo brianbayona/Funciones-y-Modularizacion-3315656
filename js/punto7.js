@@ -14,15 +14,15 @@ function calcularSumaCondicional(limiteMaximo) {// Inicializa la suma y la varia
 
     for (let i = 1; i <= limiteMaximo; i++) { // Itera desde 1 hasta el límite máximo
         if (debeInterrumpir(i)) { // Verifica si se debe interrumpir el ciclo
-            numeroInterrupcion = i;
+            numeroInterrupcion = i; // Guarda el número en el que se detuvo el ciclo
             break; // Detiene el ciclo por completo
         }
         suma += i;
     }
 
     return {
-        resultado: suma,
-        detenidoEn: numeroInterrupcion
+        resultado: suma, // Devuelve el resultado de la suma acumulada
+        detenidoEn: numeroInterrupcion // Devuelve el número en el que se detuvo el ciclo, o null si no hubo interrupción
     };
 }
 
@@ -30,15 +30,15 @@ function calcularSumaCondicional(limiteMaximo) {// Inicializa la suma y la varia
  * FUNCIÓN PRINCIPAL (Main):
  * Orquestadora de la ejecución.
  */
-function ejecutarEjercicio() {
-    const LIMITE = 100;
-    const data = calcularSumaCondicional(LIMITE);
+function ejecutarEjercicio() { // Define el límite máximo para la suma
+    const LIMITE = 100; // Calcula la suma con la condición de parada en 100
+    const data = calcularSumaCondicional(LIMITE); // Reporta el resultado de la suma y si hubo una interrupción
 
-    console.log("--- Reporte de Suma ---");
-    if (data.detenidoEn) {
-        console.log(`⚠️ Ciclo interrumpido en el número: ${data.detenidoEn}`);
+    console.log("--- Reporte de Suma ---"); // Imprime el resultado de la suma acumulada
+    if (data.detenidoEn) {  // Si hubo una interrupción, reporta el número en el que se detuvo el ciclo
+        console.log(` Ciclo interrumpido en el número: ${data.detenidoEn}`); // Si no hubo interrupción, indica que se completó la suma hasta el límite máximo
     }
-    console.log(`✅ La suma total acumulada es: ${data.resultado}`);
+    console.log(`La suma total acumulada es: ${data.resultado}`);  // Imprime el resultado final de la suma acumulada
 }
 
 // Ejecución del programa
