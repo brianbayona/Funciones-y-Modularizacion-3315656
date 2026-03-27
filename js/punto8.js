@@ -6,3 +6,4 @@ function filtrarMayores(listaPersonas) { // Función para filtrar personas mayor
     return listaPersonas.filter(persona => esMayorDeEdad(persona.edad)); // Utiliza el método filter para crear un nuevo array con las personas que cumplen la condición de ser mayores de edad//
 }
 
+function ejecutarRegistro() { // Función para ejecutar el registro de personas//
