@@ -14,3 +14,10 @@ function ejecutarRegistro() { // Función para ejecutar el registro de personas/
         { nombre: "Carlos", edad: 12 },
         { nombre: "Marta", edad: 30 }
     ];
+
+    console.log("--- Personas admitidas (18+ años) ---"); // Imprime un encabezado para la lista de personas admitidas//
+    
+    const admitidos = filtrarMayores(personas); // Llama a la función filtrarMayores para obtener solo las personas mayores de edad//
+    admitidos.forEach(p => {
+            console.log(`Nombre: ${p.nombre} | Edad: ${p.edad}`);
+        }); // Imprime el nombre y la edad de cada persona admitida//
