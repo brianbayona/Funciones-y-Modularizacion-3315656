@@ -21,8 +21,8 @@ while (!acertado) { // Bucle que continúa hasta que el usuario adivine el núme
         const feedback = verificarIntento(numeroSecreto, intentoUsuario);// Obtiene el feedback para el intento del usuario//
         alert(feedback);//la alerta muestra el feedback para el intento del usuario//
 
-        if (intentoUsuario === numeroSecreto) {
-            acertado = true;
+        if (intentoUsuario === numeroSecreto) {  // Si el usuario adivina el número, se establece acertado en true para salir del bucle//
+            acertado = true;  // Si el usuario adivina el número, se muestra un mensaje de felicitación y se termina el juego//
         }
     }
 };
