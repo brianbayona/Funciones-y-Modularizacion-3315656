@@ -10,4 +10,9 @@ const generarNumeroAleatorio = (min, max) => { // Genera un número aleatorio en
         return "El número buscado es MENOR."; // Si el número es mayor, devuelve "Demasiado alto"//
     }
 };
+
 const jugarAdivinador = () => { // Función principal para jugar al adivinador//
+    const numeroSecreto = generarNumeroAleatorio(1, 20); // Genera un número secreto entre 1 y 20//
+    let intentoUsuario;  // Variable para almacenar el número ingresado por el usuario//
+    let acertado = false;  // Variable para controlar si el usuario ha adivinado el número//
+alert("¡Bienvenido al Adivinador! He pensado un número entre 1 y 20."); // Mensaje de bienvenida//
