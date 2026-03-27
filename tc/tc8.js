@@ -10,3 +10,4 @@ const generarNumeroAleatorio = (min, max) => { // Genera un número aleatorio en
         return "El número buscado es MENOR."; // Si el número es mayor, devuelve "Demasiado alto"//
     }
 };
+const jugarAdivinador = () => { // Función principal para jugar al adivinador//
