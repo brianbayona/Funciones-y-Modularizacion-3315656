@@ -5,3 +5,8 @@ const generarNumeroAleatorio = (min, max) => { // Genera un número aleatorio en
     if (usuario === secreto) { // Si el número es correcto, devuelve "¡Correcto!"//
         return "¡Felicidades! Has adivinado el número."; 
     } else if (usuario < secreto) { // Si el número es menor, devuelve "Demasiado bajo"//
+        return "El número buscado es MAYOR.";
+    } else {
+        return "El número buscado es MENOR.";
+    }
+};
