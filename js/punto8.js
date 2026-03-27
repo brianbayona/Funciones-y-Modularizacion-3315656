@@ -7,3 +7,10 @@ function filtrarMayores(listaPersonas) { // Función para filtrar personas mayor
 }
 
 function ejecutarRegistro() { // Función para ejecutar el registro de personas//
+    const personas = [ // Array de objetos que representa a las personas con su nombre y edad//
+        { nombre: "Ana", edad: 25 },
+        { nombre: "Pedro", edad: 15 },
+        { nombre: "Lucía", edad: 18 },
+        { nombre: "Carlos", edad: 12 },
+        { nombre: "Marta", edad: 30 }
+    ];
